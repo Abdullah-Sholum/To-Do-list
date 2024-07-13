@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {               //buat
     }
     document.getElementById("myUL").appendChild(li);    //ambil elemen dengan id myUl. kemuduan masukkan elemen li kedalamnya sebgai child elemen dari elemen dengan id myUl
   });
-  updateCloseButton();              //panggul fungsi 
+  updateCloseButton();              //panggil fungsi 
 });
 
 
