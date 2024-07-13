@@ -22,9 +22,7 @@ function updateCloseButton() {
 }
 //tambahkan simbol check ketika mengklik list item
 var list = document.querySelector("ul");            //inisiasi list dengan fungsi untuk mengambil selector ul
-list.addEventListener(                              //tambahkan eventListener ke dalam list     
-  "click",                                          //event yang didengarkan adalah event click
-  function (ev) {                                   //tambahkan event listener click ke list, kemudian tambahkan fungsi callback saat event terjadi, disini (ev) mewakili event
+list.addEventListener("click", function (ev) {      //tambahkan eventListener ke dalam list, event yang didengarkan adalah event click. tambahkan event listener click ke list, kemudian tambahkan fungsi callback saat event terjadi, disini (ev) mewakili event
     if (ev.target.tagName === "LI") {               //buat kondisi jika event yang ditargetkan tagname merupakan LI
       ev.target.classList.toggle("checked");        //maka targetkan classList dengan tanda checked
       updateLocalStorage();
