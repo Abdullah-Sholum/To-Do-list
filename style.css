@@ -59,8 +59,6 @@ ul li.checked::before {
 }
 .spanList {
   /* background-color: #c63838; */
-  min-width: 30rem;
-  /* min-height: 1em; */
   display: inline-block;
 }
 .divCek {

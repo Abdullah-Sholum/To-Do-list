@@ -79,6 +79,24 @@ function newElement() {                                         //buat fungsi ne
       div.style.display = "none";
     }
   }
+
+  spanList.onclick = function () {
+    var textValue = this.textContent.trim();
+    var textarea = document.createElement("textarea");
+    textarea.className = "editMode";
+    textarea.value = textValue;
+    this.replaceWith(textarea);
+
+    textarea.addEventListener("blur", function () {
+      var newText = this.value.trim();
+      var newSpan = document.createElement("span");
+      newSpan.className = "spanList";
+      var newTextValue = document.createTextNode(newText);
+      newSpan.appendChild(newTextValue);
+      this.replaceWith(newSpan);
+      updateLocalStorage();
+    });
+  }
 }
 
 // simpan status checklist ke localStorage
@@ -132,6 +150,24 @@ document.addEventListener("DOMContentLoaded", function () {               //buat
       var div = this.parentElement;         //inisiasi div di parent div
       div.style.display = "none";           //tambahkan style div display none di div
       updateLocalStorage();                 //update localStorage
+    }
+
+    spanList.onclick = function () {
+      var textValue = this.textContent.trim();
+      var textarea = document.createElement("textarea");
+      textarea.className = "editMode";
+      textarea.value = textValue;
+      this.replaceWith(textarea);
+
+      textarea.addEventListener("blur", function () {
+        var newText = this.value.trim();
+        var newSpan = document.createElement("span");
+        newSpan.className = "spanList";
+        var newTextValue = document.createTextNode(newText);
+        newSpan.appendChild(newTextValue);
+        this.replaceWith(newSpan);
+        updateLocalStorage();
+      });
     }
     document.getElementById("myUL").appendChild(li);    //ambil elemen dengan id myUl. kemuduan masukkan elemen li kedalamnya sebgai child elemen dari elemen dengan id myUl
   });
