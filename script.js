@@ -1,7 +1,10 @@
 // buat close button & terapkan di list items
 // fungsi dibawah mengambil elemen dengan tag name li. kemudian menambahkan elemen span sebagai tempat untuk menaruh close button
 var myNodelist = document.getElementsByTagName("LI"); //inisiasi variabel dengan fungsi untuk mengambil elemen berdasarkan tag name "List Item" dari dokumen
+//bagian dibawah merupakan perulangan berdasarkan jumlah list item
 for (var i = 0; i < myNodelist.length; i++) {         //buat looping dimana i adalah 0, jika i kurang dari panjang array myNodeList, maka tambahkan i dengan 1
+  /*dibawah merupakan pembuatan close button dengan cara membuat span dengan class name "close", kemudian isi dengan close button
+  . setelah itu masukkan spanClassClose kedalam sejumlah index li */
   var span = document.createElement("SPAN");          //inisiasi variabel dengan fungsi untuk membuat elemen SPAN
   var txt = document.createTextNode("\u00D7");        //inisiasi variabel dengan fungsi untuk membuat element text node tanda tutup / x | /u00D7 merupakan representasi unicode dari tanda tutup (x)
   span.className = "close";                           //beri variabel span dengan properti className close
@@ -32,6 +35,7 @@ list.addEventListener("click", function (ev) {      //tambahkan eventListener ke
 
 // buat list item baru & simpan dengan local storage ketika tombol add ditekan
 function newElement() {                                         //buat fungsi newElemen
+  
   var li = document.createElement("li");                        //inisiasi li dengan fungsi untuk membuat elemen li di dokumen
   var inputValue = document.getElementById("myInput").value;    //inisiasi variabel dengan fungsi mengambil elemen dengan id "myInput di dokumen. kemudian nilai tersebut diambil dengan .value"
   var t = document.createTextNode(inputValue);                  //inisiasi variabel dengan fungsi untuk membuat text node dengan nilai dari variabel inputValue | value node text bisa dimasukkan kedalam html
@@ -39,17 +43,21 @@ function newElement() {                                         //buat fungsi ne
 
   if (inputValue === "") {                    //buat percabangan dengan kondisi jika inputValue berisi value kosong
     alert("You must add / write something");  //maka tambahkan alert / pemberitahuan
-  } else {                  //sebaliknya
+    return;
+  } 
+  else {                  //sebaliknya
     document.getElementById("myUL").appendChild(li);  //ambil elemen dengan id "myUL" kemudian tambahkan variabel/elemen li sebagai child dari elemen dengan id myUL
-
     updateLocalStorage();
   }
   document.getElementById("myInput").value = "";  //ambil elemen dengan id myInput. kemudian akses value,selanjutnya atur nilai value sebagai string kosong
 
+  /*buat span denan isi close button dengan class close. */
   var span = document.createElement("SPAN");    //inisiasi span dengan fungsi untuk menambahkan elemen SPAN
   var txt = document.createTextNode("\u00D7");  //inisiasi txt dengan membuat textNode tanda tutup (x)
   span.className = "close";                     //mengatur properti dengan className span dengan close
   span.appendChild(txt);                        //tambahkan child nodeTxt (txt) kedalam elemen span
+
+  /*buat child elemen span untuk li */
   li.appendChild(span);                         //tambahkan child elemen span kedalam parent li
 }
 
