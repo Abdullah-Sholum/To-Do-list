@@ -16,6 +16,7 @@ ul li {
   background: #eee;
   font-size: 18px;
   transition: 0.2s;
+  display: flex;
 
   /* buat list item unselectable */
   /*  properti dibawah digunakan untuk mengontrol teks dapat dipilih pengguna*/
@@ -56,7 +57,18 @@ ul li.checked::before {
   height: 15px;
   width: 7px;
 }
-
+.spanList {
+  /* background-color: #c63838; */
+  min-width: 30rem;
+  /* min-height: 1em; */
+  display: inline-block;
+}
+.divCek {
+  /* background-color: #7408e7; */
+  min-width: 30rem;
+  /* display: inline-block; */
+  flex-grow: 1;
+}
 /* style close button */
 .close {
   position: absolute;
