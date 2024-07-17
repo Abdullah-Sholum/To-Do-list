@@ -28,27 +28,26 @@ function updateCloseButton() {
   }
 }
 
-function enableEditing(spanList, inputValue) {
-  spanList.addEventListener('click', function () {
-    var textArea = document.createElement("TEXTAREA"); //buat elemen textArea
-    textArea.className = "edit"; //beri className "edit"
-    textArea.value = inputValue; //set value dari textArea dengan inputValue
+function enableEditing(spanList, inputValue) {                    //buat fungsi enableEditing dengan parameter spanList & inputValue
+  spanList.addEventListener('click', function () {                //tambahkan eventListener click spanlist kemudian buat fungsi 
+    var textArea = document.createElement("TEXTAREA");            //buat elemen textArea
+    textArea.className = "edit";                                  //beri className "edit"
+    textArea.value = inputValue;                                  //set value dari textArea dengan inputValue
 
-    spanList.textContent = ''; //kosongkan spanList sebelum menambahkan textArea
-    spanList.appendChild(textArea); //tambahkan textArea sebagai child dari spanList
-    textArea.focus(); //fokus ke textArea
+    spanList.textContent = '';                                    //kosongkan spanList sebelum menambahkan textArea
+    spanList.appendChild(textArea);                               //tambahkan textArea sebagai child dari spanList
+    textArea.focus();                                             //fokus ke textArea
 
     // Event listener untuk save nilai ketika klik di luar textArea
-    function saveValue(event) {
-      if (!spanList.contains(event.target)) { //jika klik di luar spanList
-        spanList.removeChild(textArea); //hapus textArea dari spanList
-        spanList.textContent = textArea.value; //set textContent spanList dengan nilai dari textArea
-        updateLocalStorage(); //update local storage
+    function saveValue(event) {                     //buat fungsi saveValue dengan event
+      if (!spanList.contains(event.target)) {       //jika klik di luar spanList
+        spanList.removeChild(textArea);             //hapus textArea dari spanList
+        spanList.textContent = textArea.value;      //set textContent spanList dengan nilai dari textArea
+        updateLocalStorage();                       //update local storage
         document.removeEventListener('click', saveValue); //hapus event listener setelah digunakan
       }
     }
-
-    document.addEventListener('click', saveValue); //tambahkan event listener untuk klik di luar textArea
+    document.addEventListener('click', saveValue);        //tambahkan event listener untuk klik di luar textArea
   });
 }
 
@@ -65,26 +64,7 @@ list.addEventListener("click", function (ev) {                //dilist tambahkan
   }, false                                                    //jika kondisi tidak terpenuhi false
 ); 
 
-// buat fungsi enableEditing untuk spanList
-function enableEditing(spanList, inputValue) {
-  spanList.addEventListener('click', function() {
-    var textArea = document.createElement('textarea');
-    textArea.className = 'edit';
-    textArea.value = inputValue;
-    spanList.textContent = '';
-    spanList.appendChild(textArea);
-    textArea.focus();
 
-    document.addEventListener('click', function saveValue(event) {
-      if (!spanList.contains(event.target)) {
-        spanList.removeChild(textArea);
-        spanList.textContent = textArea.value;
-        updateLocalStorage();
-        document.removeEventListener('click', saveValue);
-      }
-    });
-  });
-}
 // buat list item baru & simpan dengan local storage ketika tombol add ditekan
 function newElement() {                                         //buat fungsi newElemen`
   var li = document.createElement("li");                        //inisiasi li dengan fungsi untuk membuat elemen li di dokumen
@@ -127,7 +107,7 @@ function newElement() {                                         //buat fungsi ne
       div.style.display = "none";
     }
   }
-  enableEditing(spanList, inputValue);
+  enableEditing(spanList, inputValue);          //panggil fungsi enableEditing dengan parameter spanList, inputValue
 }
 
 // simpan status checklist ke localStorage
@@ -185,6 +165,6 @@ document.addEventListener("DOMContentLoaded", function () {               //buat
     document.getElementById("myUL").appendChild(li);    //ambil elemen dengan id myUl. kemuduan masukkan elemen li kedalamnya sebgai child elemen dari elemen dengan id myUl
     enableEditing(spanList, todoValue.text);
   });
-  updateCloseButton();              //panggil fungsi 
+  updateCloseButton();                      //panggil fungsi 
 });
 
