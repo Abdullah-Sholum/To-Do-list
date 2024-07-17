@@ -58,11 +58,11 @@ ul li.checked::before {
   width: 7px;
 }
 .spanList {
-  background-color: #c6383831;
+  /* background-color: #c6383831; */
   display: inline-block;
 }
 .divCek {
-  background-color: #7408e7;
+  /* background-color: #7408e7; */
   min-width: 30rem;
   /* display: inline-block; */
   flex-grow: 1;
