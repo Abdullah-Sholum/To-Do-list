@@ -18,7 +18,7 @@ ul li {
   position: relative;
   padding: 12px 8px 12px 40px;
   background: #eee;
-  font-size: 1.2em;
+  font-size: 1.5em;
   transition: 0.2s;
   display: flex;
 
@@ -135,6 +135,6 @@ input {
     padding-left: 2em;
   }
   ul li {
-    font-size: 0.8em;
+    font-size: 1.1em;
   }
 }
