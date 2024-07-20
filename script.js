@@ -64,7 +64,6 @@ list.addEventListener("click", function (ev) {                //dilist tambahkan
   }, false                                                    //jika kondisi tidak terpenuhi false
 ); 
 
-
 // buat list item baru & simpan dengan local storage ketika tombol add ditekan
 function newElement() {                                         //buat fungsi newElemen`
   var li = document.createElement("li");                        //inisiasi li dengan fungsi untuk membuat elemen li di dokumen
@@ -168,3 +167,13 @@ document.addEventListener("DOMContentLoaded", function () {               //buat
   updateCloseButton();                      //panggil fungsi 
 });
 
+//fungsi untuk menampilkan tanggal
+document.addEventListener("DOMContentLoaded", function() {      //buat fungsi untuk menjalankan js segera setelah html dimuat, buat fungsi
+  var tanggalElemen = document.getElementById("tanggal");       //ambil elemen id tanggal
+  var tanggalSekarang = new Date();                             //inisiasi dengan waktu sekarang
+
+  var options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};    //buat format tanggal di indonesia
+  var tanggalFormatted = tanggalSekarang.toLocaleDateString('id-ID', options);        //inisiasi format dengan mengatur waktu dengan lokasi id & format di indonesia. 
+
+  tanggalElemen.textContent = tanggalFormatted;      
+});

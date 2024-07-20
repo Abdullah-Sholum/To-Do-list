@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+#tanggal {
+  font-size: 2em;
+  padding-left: 1.2em;
+}
 
 /* hilangkan margin & padding */
 ul {
@@ -122,4 +126,12 @@ input {
 
 .addBtn:hover {
   background-color: #bbb;
+}
+
+
+@media screen and (max-width: 720px) {
+  #tanggal {
+    font-size: 1.17em;
+    padding-left: 2em;
+  }
 }
